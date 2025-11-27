@@ -14,3 +14,14 @@ def get_employees():
     cur.close()
     conn.close()
     return JSONResponse(content=rows)
+
+@router.get('/employees/{emp_id}')
+def get_employee_by_id(emp_id):
+    conn = get_conn()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM employees where employee_id=%s;', (emp_id,))
+    rows = cur.fetchone()
+    # conn.commit() only for write operations
+    cur.close()
+    conn.close()
+    return JSONResponse(content=rows)
