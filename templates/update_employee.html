@@ -1,0 +1,16 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css">
+</head>
+
+<body>
+
+    <form action="/employees/update" method="POST">
+        <input type="text" value="{{ person[0] }}" name="emp_id" readonly>
+        <input type="text" value="{{ person[1] }}" name="emp_name">
+        <button type="submit">Save</button>
+    </form>
+
+</body>
+
+</html>

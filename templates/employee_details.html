@@ -1,0 +1,14 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css">
+</head>
+
+<body>
+    <h1>Employee details - {{ person[1] }}</h1>
+    <p>Role: {{ person[2] }}</p>
+    <p>Region: {{ person[3] }}</p>
+    <a href="/employees/update/{{ person[0] }}">Update</a>
+    <a href="/employees/delete/{{ person[0] }}">Delete</a>
+</body>
+
+</html>
