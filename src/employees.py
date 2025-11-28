@@ -7,7 +7,7 @@ router = APIRouter(tags=['Employees'])
 templates = Jinja2Templates(directory="templates")
 
 @router.get('/employees')
-def get_employees():
+def get_employees(request: Request):
     conn = get_conn()
     cur = conn.cursor()
     cur.execute('SELECT * FROM employees;')
@@ -15,7 +15,7 @@ def get_employees():
     # conn.commit() only for write operations
     cur.close()
     conn.close()
-    return JSONResponse(content=rows)
+    return templates.TemplateResponse('employees.html', {'request': request, 'persons': rows})
 
 @router.post('/employees')
 def get_employee_by_id(request: Request, emp_id = Form(...)):

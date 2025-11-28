@@ -1,0 +1,16 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css">
+</head>
+
+<body>
+    <h1>Employee List</h1>
+    {% for person in persons %}
+        <p>{{ person[0]}} | {{person[1]}} | {{ person[2] }} | {{ person[3] }}</p>
+        <a href="/employees/update/{{ person[0] }}">Update</a>
+    <a href="/employees/delete/{{ person[0] }}">Delete</a>
+    <hr>
+    {% endfor %}
+</body>
+
+</html>
